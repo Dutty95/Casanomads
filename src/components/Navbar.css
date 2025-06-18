@@ -1,0 +1,217 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(2, 70, 14, 0.95);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.navbar-container {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+.brand-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #14B053;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 1001;
+}
+
+.burger-line {
+  width: 25px;
+  height: 2px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Close button styling */
+.close-btn {
+  display: none;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1004;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+    position: relative;
+    z-index: 1001;
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(2, 65, 10, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: all 0.3s ease;
+    z-index: 1002;
+    box-sizing: border-box;
+    display: none;
+  }
+
+  .navbar-links.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: all;
+    display: flex;
+  }
+
+  /* Show close button in mobile menu */
+  .navbar-links.active .close-btn {
+    display: block;
+  }
+
+  /* Enhanced mobile menu link styling */
+  .navbar-links.active .nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 0.5rem 0;
+  }
+
+  .navbar-links.active .nav-link:hover {
+    background-color: rgba(20, 176, 83, 0.2);
+    color: #14B053;
+    transform: translateY(-2px);
+  }
+
+  .navbar-links.active .nav-link.active {
+    background-color: rgba(20, 176, 83, 0.3);
+    color: #14B053;
+  }
+
+  /* Hamburger animation */
+  .burger.active .burger-line:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 6px);
+  }
+
+  .burger.active .burger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger.active .burger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -6px);
+  }
+
+  /* Mobile specific close button adjustments */
+  .navbar-links.active .close-btn {
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+  }
+
+  /* Mobile specific link adjustments */
+  .navbar-links.active .nav-link {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+/* Ensure proper stacking context */
+.navbar * {
+  position: relative;
+}
+
+/* Hide inactive menu completely */
+.navbar-links:not(.active) {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .navbar-links:not(.active) {
+    display: none;
+  }
+}
