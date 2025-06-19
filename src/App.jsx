@@ -11,7 +11,7 @@ import Contact from './pages/Contact';
 
 function App() {
   return (
-    <Router basename="/my-landing-page">
+    <Router basename="/Casanomads">
       <div className="App">
         <Navbar />
         
