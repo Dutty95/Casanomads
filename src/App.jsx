@@ -11,7 +11,7 @@ import Contact from './pages/Contact';
 
 function App() {
   return (
-    <Router basename="/">
+    <Router basename="Casanomads/">
       <div className="App">
         <Navbar />
         
