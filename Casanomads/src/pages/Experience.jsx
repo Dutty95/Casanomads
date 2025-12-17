@@ -1,6 +1,11 @@
 import React from 'react';
 
 function Experience() {
+  // This will work in both development and production
+  // In dev: /assets/experience-lagos.pdf
+  // In prod: /Casanomads/assets/experience-lagos.pdf (automatically added by vite base)
+  const pdfPath = `${import.meta.env.BASE_URL}assets/experience-lagos.pdf`;
+
   return (
     <div style={{ 
       color: '#ffffff',
@@ -25,7 +30,7 @@ function Experience() {
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text'
         }}>
-          What's Around Lagos?
+          What's Around Lagos.
         </h1>
         <p style={{
           fontSize: 'clamp(1rem, 3vw, 1.2rem)',
@@ -50,7 +55,7 @@ function Experience() {
         boxShadow: '0 8px 25px rgba(0, 0, 0, 0.2)'
       }}>
         <iframe
-          src="/assets/experience-lagos.pdf"
+          src={pdfPath}
           width="100%"
           height="800px"
           style={{
