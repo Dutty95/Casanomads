@@ -1,0 +1,310 @@
+/* App specific styles using @layer to work with Tailwind */
+@layer components {
+  .App {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    position: relative !important;
+    background-image: url('/assets/Casanomads.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    isolation: isolate;
+    overflow-x: hidden !important; /* Prevent horizontal scroll */
+  }
+
+  .App .layout {
+    flex: 1 !important;
+    padding: 2rem 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    position: relative;
+    z-index: 1;
+    margin-top: 70px;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.logo {
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 2rem;
+  color: #A0CC4B;
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+h2 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Ensure all text elements are responsive */
+p, div, span {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  hyphens: auto !important;
+  max-width: 100% !important;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.video-card {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(20, 176, 83, 0.3);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent content overflow */
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  border-color: #14B053;
+  box-shadow: 0 10px 30px rgba(20, 176, 83, 0.2);
+}
+
+.video-card h2 {
+  color: #A0CC4B;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.video-card p {
+  color: #ffffff;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Mobile responsive fixes */
+@media (max-width: 768px) {
+  .App {
+    background-attachment: scroll !important; /* Fix for mobile background */
+  }
+  
+  .App .layout {
+    padding: 1rem 0.75rem !important; /* Reduce padding more for mobile */
+    margin-top: 60px !important; /* Adjust for mobile navbar */
+  }
+  
+  .App h1 {
+    font-size: 1.4rem !important;
+    line-height: 1.3 !important;
+    padding: 0 0.5rem !important;
+  }
+  
+  .App h2 {
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+    padding: 0 0.5rem !important;
+  }
+  
+  .App .header {
+    margin-bottom: 2rem !important;
+    padding: 0 0.5rem !important;
+  }
+  
+  .App .video-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    padding: 0 !important;
+  }
+  
+  .App .video-card {
+    padding: 1rem !important;
+    margin: 0 !important;
+    border-radius: 8px !important;
+  }
+  
+  .App .video-card h2 {
+    font-size: 1.1rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  .App .video-card p {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+  }
+  
+  .App .logo {
+    max-width: 120px !important;
+  }
+  
+  /* Force text to wrap on mobile */
+  .App * {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+  
+  /* Mobile-specific text container */
+  .App p, .App div, .App span {
+    max-width: calc(100vw - 2rem) !important;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .App .layout {
+    padding: 0.75rem 0.5rem !important;
+  }
+  
+  .App h1 {
+    font-size: 1.2rem !important;
+    padding: 0 0.25rem !important;
+  }
+  
+  .App h2 {
+    font-size: 1rem !important;
+    padding: 0 0.25rem !important;
+  }
+  
+  .App .video-card {
+    padding: 0.75rem !important;
+  }
+  
+  .App .video-card h2 {
+    font-size: 1rem !important;
+  }
+  
+  .App .video-card p {
+    font-size: 0.85rem !important;
+  }
+  
+  .App p, .App div, .App span {
+    max-width: calc(100vw - 1.5rem) !important;
+  }
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .App .layout {
+    padding: 1.5rem !important;
+  }
+  
+  .App .video-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  }
+}
+
+/* Ensure proper stacking context */
+.App > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Navigation and dropdown z-index fixes */
+.navbar, nav {
+  position: relative !important;
+  z-index: 1000 !important;
+}
+
+.navbar-container {
+  position: relative !important;
+  z-index: 1000 !important;
+}
+
+/* Dropdown menu styles */
+.navbar-links, .nav-links, .dropdown-menu, [class*="dropdown"], [class*="menu"] {
+  position: relative !important;
+  z-index: 1001 !important;
+}
+
+/* Mobile menu specific */
+.navbar-links.active, .nav-links.active, .mobile-menu.active {
+  position: fixed !important;
+  z-index: 1002 !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: rgba(0, 0, 0, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Ensure dropdown content appears above everything */
+.navbar-links.active > *, .nav-links.active > * {
+  position: relative !important;
+  z-index: 1003 !important;
+}
+
+/* Override any conflicting Tailwind if needed */
+.bg-black {
+  background-color: transparent !important;
+}
+
+.text-white {
+  color: inherit;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .video-card {
+    transition: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .video-card {
+    border: 2px solid #ffffff;
+  }
+  
+  h1, h2 {
+    color: #ffffff;
+  }
+}

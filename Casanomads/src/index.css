@@ -1,0 +1,265 @@
+/* Brand color palette */
+:root {
+  --green-dark: #006838;
+  --green-mid: #14B053;
+  --green-light: #A0CC4B;
+  --white: #ffffff;
+  --black: #000000;
+
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.95);
+  background-color: #000000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base body - using @layer to ensure proper Tailwind integration */
+@layer base {
+  * {
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  #root {
+    isolation: isolate;
+    position: relative;
+  }
+
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Prevent body scroll when mobile menu is open */
+  body.menu-open {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  #root {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .layout {
+    max-width: 100vw;
+    width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  /* Headings */
+  h1, h2, h3 {
+    margin-top: 0;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    color: var(--green-light);
+    padding: 0 1rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    padding: 0 1rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    padding: 0 1rem;
+  }
+
+  /* Paragraphs and text */
+  p, div, span, li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+  }
+
+  /* Links */
+  a {
+    font-weight: 500;
+    color: var(--green-mid);
+    text-decoration: none;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Buttons */
+  button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: var(--green-mid);
+    color: var(--white);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+  }
+
+  button:hover {
+    background-color: var(--green-light);
+    transform: scale(1.03);
+  }
+
+  button:focus,
+  button:focus-visible {
+    outline: 2px solid var(--green-light);
+  }
+
+  ul {
+    padding-left: 1rem;
+    max-width: 100%;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px; /* Slightly smaller base font for mobile */
+  }
+  
+  @layer components {
+    .layout {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      line-height: 1.3;
+      padding: 0 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      line-height: 1.4;
+      padding: 0 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      padding: 0 0.5rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 0.5em 1em;
+      font-size: 0.9rem;
+      min-width: auto;
+      white-space: normal;
+    }
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  :root {
+    font-size: 13px;
+  }
+  
+  @layer components {
+    .layout {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      padding: 0 0.25rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      padding: 0 0.25rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+      padding: 0 0.25rem;
+    }
+
+    p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: 0.85rem;
+      padding: 0.4em 0.8em;
+    }
+  }
+}
+
+/* Light mode fallback (for systems with forced light theme) */
+@media (prefers-color-scheme: light) {
+  :root {
+    background-color: #000000;
+    color: #000000;
+  }
+
+  button {
+    background-color: #14B053;
+    color: #000000;
+  }
+}
