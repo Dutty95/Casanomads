@@ -10,7 +10,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router basename="/Casanomads">
+    <Router basename="/">
       <div 
         style={{ 
           minHeight: '100vh', 
