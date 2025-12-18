@@ -13,7 +13,24 @@
     background-position: center !important;
     background-attachment: fixed !important;
     isolation: isolate;
-    overflow-x: hidden !important; /* Prevent horizontal scroll */
+    overflow-x: hidden !important;
+  }
+
+  .App::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: -1;
+    pointer-events: none;
   }
 
   .App .layout {
@@ -27,7 +44,7 @@
     margin-top: 70px;
     backdrop-filter: blur(10px);
     box-sizing: border-box;
-    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-x: hidden;
   }
 }
 
@@ -42,6 +59,11 @@
   max-width: 180px;
   height: auto;
   margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 h1 {
@@ -63,7 +85,6 @@ h2 {
   hyphens: auto;
 }
 
-/* Ensure all text elements are responsive */
 p, div, span {
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
@@ -87,17 +108,17 @@ p, div, span {
   border-radius: 12px;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(20, 176, 83, 0.3);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  overflow: hidden; /* Prevent content overflow */
+  overflow: hidden;
 }
 
 .video-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
   border-color: #14B053;
-  box-shadow: 0 10px 30px rgba(20, 176, 83, 0.2);
+  box-shadow: 0 20px 40px rgba(20, 176, 83, 0.3);
 }
 
 .video-card h2 {
@@ -118,7 +139,6 @@ p, div, span {
   hyphens: auto;
 }
 
-/* Footer styles */
 footer {
   text-align: center;
   padding: 2rem;
@@ -133,12 +153,12 @@ footer {
 /* Mobile responsive fixes */
 @media (max-width: 768px) {
   .App {
-    background-attachment: scroll !important; /* Fix for mobile background */
+    background-attachment: scroll !important;
   }
   
   .App .layout {
-    padding: 1rem 0.75rem !important; /* Reduce padding more for mobile */
-    margin-top: 60px !important; /* Adjust for mobile navbar */
+    padding: 1rem 0.75rem !important;
+    margin-top: 60px !important;
   }
   
   .App h1 {
@@ -184,20 +204,17 @@ footer {
     max-width: 120px !important;
   }
   
-  /* Force text to wrap on mobile */
   .App * {
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
     hyphens: auto !important;
   }
   
-  /* Mobile-specific text container */
   .App p, .App div, .App span {
     max-width: calc(100vw - 2rem) !important;
   }
 }
 
-/* Small mobile devices */
 @media (max-width: 480px) {
   .App .layout {
     padding: 0.75rem 0.5rem !important;
@@ -230,7 +247,6 @@ footer {
   }
 }
 
-/* Tablet styles */
 @media (max-width: 1024px) and (min-width: 769px) {
   .App .layout {
     padding: 1.5rem !important;
@@ -241,13 +257,11 @@ footer {
   }
 }
 
-/* Ensure proper stacking context */
 .App > * {
   position: relative;
   z-index: 1;
 }
 
-/* Navigation and dropdown z-index fixes */
 .navbar, nav {
   position: relative !important;
   z-index: 1000 !important;
@@ -258,13 +272,11 @@ footer {
   z-index: 1000 !important;
 }
 
-/* Dropdown menu styles */
 .navbar-links, .nav-links, .dropdown-menu, [class*="dropdown"], [class*="menu"] {
   position: relative !important;
   z-index: 1001 !important;
 }
 
-/* Mobile menu specific */
 .navbar-links.active, .nav-links.active, .mobile-menu.active {
   position: fixed !important;
   z-index: 1002 !important;
@@ -276,13 +288,11 @@ footer {
   backdrop-filter: blur(10px) !important;
 }
 
-/* Ensure dropdown content appears above everything */
 .navbar-links.active > *, .nav-links.active > * {
   position: relative !important;
   z-index: 1003 !important;
 }
 
-/* Override any conflicting Tailwind if needed */
 .bg-black {
   background-color: transparent !important;
 }
@@ -291,14 +301,12 @@ footer {
   color: inherit;
 }
 
-/* Accessibility improvements */
 @media (prefers-reduced-motion: reduce) {
   .video-card {
     transition: none;
   }
 }
 
-/* High contrast mode */
 @media (prefers-contrast: high) {
   .video-card {
     border: 2px solid #ffffff;

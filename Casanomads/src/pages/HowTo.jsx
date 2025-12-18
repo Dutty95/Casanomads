@@ -32,7 +32,7 @@ const videos = [
   {
     title: "How to Use the Steamer",
     id: "1ZMErmduFe_ml6S9PjSSxvfk5sS6TxWFN",
-    description: "Learn healthy cooking with the steamer appliance",
+    description: "Learn how to use the steamer appliance for your clothes",
     duration: "4 min",
     category: "Appliances"
   }

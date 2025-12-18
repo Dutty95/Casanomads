@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, NavLink } from 'react-router-dom';
 import './Navbar.css';
-
 // Import the logo (Vite will optimize it automatically)
-import logo from '../assets/Casanomads.png';   // ← adjust the path if your Navbar is deeper
+import logo from '../assets/Casanomads.png';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +13,7 @@ function Navbar() {
   const navItems = [
     { path: '/', label: 'Home', icon: '🏠' },
     { path: '/how-to', label: 'How To', icon: '📹' },
-    { path: '/experience', label: 'Whats Around', icon: '🌆' },
+    { path: '/experience', label: 'Experience Lagos', icon: '🌆' },
     { path: '/emergency', label: 'Emergency Contacts', icon: '🚨' },
     { path: '/contact', label: 'Contact Us', icon: '📞' }
   ];
@@ -53,7 +52,7 @@ function Navbar() {
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`} ref={menuRef}>
       <div className="navbar-container">
-        {/* LOGO INSTEAD OF TEXT */}
+        {/* LOGO */}
         <NavLink to="/" className="brand-link">
           <img src={logo} alt="Casa Nomads" className="brand-logo" />
         </NavLink>
@@ -73,7 +72,6 @@ function Navbar() {
           <button className="close-btn" onClick={closeMenu} aria-label="Close menu">
             ×
           </button>
-
           {navItems.map((item) => (
             <NavLink
               key={item.path}
