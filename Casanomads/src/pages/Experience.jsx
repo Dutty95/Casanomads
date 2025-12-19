@@ -44,7 +44,7 @@ function Experience() {
   return (
     <div style={{ 
       color: '#ffffff',
-      padding: isMobile ? '1rem' : '2rem 1rem',
+      padding: isMobile ? '1rem 0.5rem' : '2rem 1rem',
       minHeight: '100vh',
       background: '#0d0d0d',
       fontFamily: 'Poppins, sans-serif'
@@ -79,65 +79,84 @@ function Experience() {
         </p>
       </div>
 
-      {/* Mobile Instructions */}
+      {/* Mobile Download Priority */}
       {isMobile && (
         <div style={{
           maxWidth: '900px',
-          margin: '0 auto 1rem auto',
-          background: 'rgba(160, 204, 75, 0.15)',
-          padding: '1rem',
-          borderRadius: '12px',
-          border: '1px solid rgba(160, 204, 75, 0.3)',
-          textAlign: 'center'
+          margin: '0 auto 1.5rem auto',
+          padding: '0 0.5rem'
         }}>
-          <p style={{
-            color: '#A0CC4B',
-            fontSize: '0.9rem',
-            fontWeight: '600',
-            margin: '0 0 0.5rem 0'
+          <div style={{
+            background: 'rgba(160, 204, 75, 0.15)',
+            padding: '1.2rem',
+            borderRadius: '12px',
+            border: '2px solid rgba(160, 204, 75, 0.4)',
+            textAlign: 'center',
+            marginBottom: '1rem'
           }}>
-            📱 Mobile Viewing Tips:
-          </p>
-          <p style={{
-            color: '#cccccc',
-            fontSize: '0.85rem',
-            lineHeight: '1.5',
-            margin: '0'
-          }}>
-            Tap the download button (↓) in the PDF toolbar to save and view with better controls, 
-            or pinch to zoom and swipe to navigate pages.
-          </p>
-        </div>
-      )}
+            <p style={{
+              color: '#A0CC4B',
+              fontSize: '1rem',
+              fontWeight: '700',
+              margin: '0 0 0.8rem 0'
+            }}>
+              📱 Best Mobile Experience
+            </p>
+            <p style={{
+              color: '#cccccc',
+              fontSize: '0.9rem',
+              lineHeight: '1.6',
+              margin: '0 0 1rem 0'
+            }}>
+              For the best viewing experience on mobile, download the PDF to view in your phone's PDF reader app.
+            </p>
+            <a
+              href={pdfPath}
+              download="Experience-Lagos-Guide.pdf"
+              style={{
+                display: 'inline-block',
+                background: 'linear-gradient(45deg, #14B053, #A0CC4B)',
+                color: '#ffffff',
+                padding: '1rem 2rem',
+                borderRadius: '12px',
+                textDecoration: 'none',
+                fontWeight: '700',
+                fontSize: '1.05rem',
+                boxShadow: '0 6px 20px rgba(160, 204, 75, 0.4)',
+                transition: 'all 0.2s ease',
+                border: 'none',
+                cursor: 'pointer'
+              }}
+              onTouchStart={(e) => {
+                e.currentTarget.style.transform = 'scale(0.95)';
+                e.currentTarget.style.boxShadow = '0 4px 15px rgba(160, 204, 75, 0.3)';
+              }}
+              onTouchEnd={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(160, 204, 75, 0.4)';
+              }}
+            >
+              📥 Download PDF Guide
+            </a>
+          </div>
 
-      {/* Download Link for Mobile */}
-      {isMobile && (
-        <div style={{
-          maxWidth: '900px',
-          margin: '0 auto 1rem auto',
-          textAlign: 'center'
-        }}>
-          <a
-            href={pdfPath}
-            download="Experience-Lagos-Guide.pdf"
-            style={{
-              display: 'inline-block',
-              background: 'linear-gradient(45deg, #14B053, #A0CC4B)',
-              color: '#ffffff',
-              padding: '0.8rem 1.5rem',
-              borderRadius: '10px',
-              textDecoration: 'none',
-              fontWeight: '600',
-              fontSize: '0.95rem',
-              boxShadow: '0 4px 15px rgba(160, 204, 75, 0.3)',
-              transition: 'transform 0.2s ease'
-            }}
-            onMouseDown={(e) => e.currentTarget.style.transform = 'scale(0.95)'}
-            onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'}
-            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-          >
-            📥 Download PDF Guide
-          </a>
+          <div style={{
+            background: 'rgba(255, 255, 255, 0.05)',
+            padding: '0.8rem',
+            borderRadius: '8px',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            textAlign: 'center',
+            marginBottom: '1.5rem'
+          }}>
+            <p style={{
+              color: '#999',
+              fontSize: '0.8rem',
+              lineHeight: '1.4',
+              margin: '0'
+            }}>
+              Preview below may have limited functionality. Download for full features including zoom, search, and easy navigation.
+            </p>
+          </div>
         </div>
       )}
 
@@ -146,81 +165,125 @@ function Experience() {
         maxWidth: '900px',
         margin: '0 auto',
         background: 'rgba(255, 255, 255, 0.08)',
-        padding: isMobile ? '0.8rem' : 'clamp(1rem, 3vw, 2rem)',
-        borderRadius: isMobile ? '15px' : '20px',
+        padding: isMobile ? '0.5rem' : 'clamp(1rem, 3vw, 2rem)',
+        borderRadius: isMobile ? '12px' : '20px',
         backdropFilter: 'blur(10px)',
         border: '1px solid rgba(255, 255, 255, 0.1)',
         boxShadow: '0 8px 25px rgba(0, 0, 0, 0.2)'
       }}>
-        <div style={{
-          position: 'relative',
-          width: '100%',
-          paddingBottom: isMobile ? '100%' : '0',
-          overflow: 'hidden',
-          borderRadius: '10px'
-        }}>
-          <iframe
-            src={pdfPath}
-            width="100%"
-            height={isMobile ? '600px' : '800px'}
-            style={{
-              border: 'none',
-              borderRadius: '10px',
-              boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
-              background: '#ffffff',
-              display: 'block',
-              ...(isMobile && {
-                minHeight: '500px',
-                maxHeight: '70vh'
-              })
-            }}
-            title="Experience Lagos PDF Guide"
-            loading="lazy"
-          />
-        </div>
+        {isMobile ? (
+          // Mobile: Better fitting iframe
+          <div style={{
+            position: 'relative',
+            width: '100%',
+            height: '75vh', // Use viewport height for better mobile fit
+            minHeight: '500px',
+            maxHeight: '800px',
+            borderRadius: '8px',
+            overflow: 'hidden',
+            background: '#ffffff'
+          }}>
+            <iframe
+              src={pdfPath}
+              style={{
+                width: '100%',
+                height: '100%',
+                border: 'none',
+                borderRadius: '8px',
+                display: 'block'
+              }}
+              title="Experience Lagos PDF Guide"
+              loading="lazy"
+            />
+          </div>
+        ) : (
+          // Desktop: Standard iframe
+          <div style={{
+            position: 'relative',
+            width: '100%',
+            borderRadius: '10px',
+            overflow: 'hidden',
+            background: '#ffffff'
+          }}>
+            <iframe
+              src={pdfPath}
+              width="100%"
+              height="800px"
+              style={{
+                border: 'none',
+                borderRadius: '10px',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
+                background: '#ffffff',
+                display: 'block'
+              }}
+              title="Experience Lagos PDF Guide"
+              loading="lazy"
+            />
+          </div>
+        )}
       </div>
 
-      {/* Info Section */}
-      <div style={{
-        maxWidth: '800px',
-        margin: '1.5rem auto 0 auto',
-        background: 'rgba(255, 255, 255, 0.06)',
-        padding: isMobile ? '1rem' : '1.5rem',
-        borderRadius: '15px',
-        backdropFilter: 'blur(10px)',
-        border: '1px solid rgba(255, 255, 255, 0.1)',
-        textAlign: 'center'
-      }}>
-        <p style={{
-          color: '#cccccc',
-          fontSize: isMobile ? '0.85rem' : 'clamp(0.85rem, 2vw, 0.95rem)',
-          lineHeight: '1.6',
-          margin: '0',
-          padding: '0 0.5rem'
-        }}>
-          💡 <strong style={{ color: '#A0CC4B' }}>Desktop Tip:</strong> Use your browser's built-in PDF controls to navigate, zoom, and download the guide.
-        </p>
-      </div>
-
-      {/* Additional Mobile Help */}
-      {isMobile && (
+      {/* Desktop Info Section */}
+      {!isMobile && (
         <div style={{
           maxWidth: '800px',
-          margin: '1rem auto 0 auto',
-          background: 'rgba(255, 255, 255, 0.04)',
-          padding: '1rem',
-          borderRadius: '12px',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          margin: '1.5rem auto 0 auto',
+          background: 'rgba(255, 255, 255, 0.06)',
+          padding: '1.5rem',
+          borderRadius: '15px',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
           textAlign: 'center'
         }}>
           <p style={{
-            color: '#999',
-            fontSize: '0.8rem',
-            lineHeight: '1.5',
-            margin: '0'
+            color: '#cccccc',
+            fontSize: 'clamp(0.85rem, 2vw, 0.95rem)',
+            lineHeight: '1.6',
+            margin: '0',
+            padding: '0 0.5rem'
           }}>
-            Having trouble viewing? Try downloading the PDF using the button above for the best mobile experience.
+            💡 <strong style={{ color: '#A0CC4B' }}>Tip:</strong> Use your browser's built-in PDF controls to navigate, zoom, and download the guide.
           </p>
+        </div>
+      )}
+
+      {/* Mobile Alternative Help */}
+      {isMobile && (
+        <div style={{
+          maxWidth: '800px',
+          margin: '1.5rem auto 0 auto',
+          padding: '0 0.5rem'
+        }}>
+          <div style={{
+            background: 'rgba(255, 255, 255, 0.04)',
+            padding: '1rem',
+            borderRadius: '10px',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            textAlign: 'center'
+          }}>
+            <p style={{
+              color: '#A0CC4B',
+              fontSize: '0.85rem',
+              fontWeight: '600',
+              margin: '0 0 0.5rem 0'
+            }}>
+              💡 Quick Tips:
+            </p>
+            <ul style={{
+              color: '#999',
+              fontSize: '0.8rem',
+              lineHeight: '1.8',
+              margin: '0',
+              padding: '0 0 0 1.2rem',
+              textAlign: 'left',
+              listStyle: 'disc'
+            }}>
+              <li>Tap the download button above for best experience</li>
+              <li>In preview: Pinch to zoom, swipe to change pages</li>
+              <li>Some phones may have limited PDF preview features</li>
+              <li>Downloaded PDF opens in your phone's native reader</li>
+            </ul>
+          </div>
         </div>
       )}
     </div>

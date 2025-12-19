@@ -13,7 +13,7 @@ function Navbar() {
   const navItems = [
     { path: '/', label: 'Home', icon: '🏠' },
     { path: '/how-to', label: 'How To', icon: '📹' },
-    { path: '/experience', label: 'Experience Lagos', icon: '🌆' },
+    { path: '/experience', label: 'Whats Around', icon: '🌆' },
     { path: '/emergency', label: 'Emergency Contacts', icon: '🚨' },
     { path: '/contact', label: 'Contact Us', icon: '📞' }
   ];
